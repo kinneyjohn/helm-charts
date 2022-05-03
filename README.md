@@ -1,1 +1,1 @@
-# gitea-openshift-chart
+# openshift helm chart
