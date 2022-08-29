@@ -1,0 +1,27 @@
+{{- if .Values.route.enabled -}}
+{{- $fullName := include "gitea.fullname" . -}}
+{{- $httpPort := .Values.service.http.port -}}
+
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: {{ $fullName }}
+  labels:
+    {{- include "gitea.labels" . | nindent 4 }}
+  {{- with .Values.ingress.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  host: {{ required "You MUST specify the external hostname to be used for the public-facing web page" .Values.route.host }}
+  to:
+    kind: Service
+    name: {{ $fullName }}-http
+    weight: 100
+  port:
+    targetPort: {{ $httpPort }}
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
+{{- end }}
