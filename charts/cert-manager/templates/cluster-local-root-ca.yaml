@@ -1,0 +1,18 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: cluster-local-root-ca
+  namespace: openshift-cert-manager
+spec:
+  isCA: true
+  commonName: cluster-local-root-ca
+  duration: 8760h
+  secretName: root-ca
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+  issuerRef:
+    name: selfsigned-issuer
+    kind: ClusterIssuer
+    group: cert-manager.io
