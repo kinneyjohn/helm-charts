@@ -3,6 +3,16 @@ entries:
   cert-manager:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2022-08-29T16:33:43.67116371Z"
+    description: A Helm chart for Kubernetes
+    digest: fd5a40c03663b0a933fe1e8c9491628e34208a2498b37ab4a0941e23107f8f2f
+    name: cert-manager
+    type: application
+    urls:
+    - https://github.com/kinneyjohn/helm-charts/releases/download/cert-manager-0.1.1/cert-manager-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2022-08-29T16:24:48.06756358Z"
     description: A Helm chart for Kubernetes
     digest: 6be986c7047272aef39e1ed5fc933cc636c5c17aab67d8573e1786c06a9d84ad
