@@ -20,7 +20,7 @@ spec:
     - server auth
     - client auth
   dnsNames:
-    - openshift-gitops-server-openshift-gitops.apps.{{ (lookup "config.openshift.io/v1" "DNS" "" "cluster").spec.baseDomain }}
+    - openshift-gitops-server-openshift-gitops.apps.{{ .Values.clusterDomain }}
   issuerRef:
     kind: ClusterIssuer
     name: cluster-local-issuer
